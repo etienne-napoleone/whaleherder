@@ -1,5 +1,7 @@
+import logging
 import docker
 
+_log = logging.getLogger('whaleherder')
 _docker = docker.from_env()
 
 
@@ -7,13 +9,15 @@ def init():
     try:
         _docker.swarm.init()
     except docker.errors.APIError as e:
-        pass
+        _log.debug(e)
 
 
 def ping() -> bool:
     try:
         return _docker.ping()
     except docker.errors.APIError as e:
+        _log.error('Could not communicate with Docker')
+        _log.debug(e)
         return False
 
 
@@ -24,23 +28,33 @@ def get_services() -> dict:
             services[service.name] = service.id
         return services
     except docker.errors.APIError as e:
+        _log.error('Could not communicate with Docker')
+        _log.debug(e)
         return False
 
 
-def get_service(name):
+def _get_service(name):
     services = get_services()
     if name in services.keys():
         try:
             return _docker.services.get(services[name])
         except docker.errors.APIError as e:
+            _log.error('Could not communicate with Docker')
+            _log.debug(e)
             return False
     else:
         return False
 
 
 def reload(name) -> bool:
+    service = _get_service(name)
+    if not service:
+        _log.error(f'Service {name} seems to have vanished')
+        return False
     try:
-        get_service(name).update()
+        service.update()
         return True
     except docker.errors.APIError as e:
+        _log.error('Could not communicate with Docker')
+        _log.debug(e)
         return False

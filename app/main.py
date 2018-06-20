@@ -4,7 +4,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import herder
 
-app = Flask(__name__)
+app = Flask('whaleherder')
 limiter = Limiter(app,
                   key_func=get_remote_address,
                   default_limits=["1 per minute", "1 per second"])
@@ -23,10 +23,11 @@ def hello():
 @app.route("/services/<service>", methods=['POST'])
 def receive_trigger(service):
     services = herder.get_services()
-    app.logger.debug(services)
     if services and service in services.keys():
         if herder.reload(service):
-            return f"Service {service} reloaded"
+            return f"Reloading {service}"
+        else:
+            abort(500)
     elif services and service not in services.keys():
         abort(404)
     else:
