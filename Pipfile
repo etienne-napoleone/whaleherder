@@ -9,6 +9,8 @@ name = "pypi"
 
 docker = "*"
 flask = "*"
+pyyaml = "*"
+flask-limiter = "*"
 
 
 [dev-packages]
