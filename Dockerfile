@@ -5,7 +5,7 @@ LABEL maintainer="etienne@tomochain.com"
 WORKDIR /app
 
 COPY ./app/ ./
-COPY ./Pipefile* ./
+COPY ./Pipfile* ./
 
 RUN pip install pipenv && \
     pipenv sync
