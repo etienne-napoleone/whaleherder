@@ -5,13 +5,6 @@ _log = logging.getLogger('whaleherder')
 _docker = docker.from_env()
 
 
-def init():
-    try:
-        _docker.swarm.init()
-    except docker.errors.APIError as e:
-        _log.debug(e)
-
-
 def ping() -> bool:
     try:
         return _docker.ping()

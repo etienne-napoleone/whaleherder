@@ -8,7 +8,6 @@ app = Flask('whaleherder')
 limiter = Limiter(app,
                   key_func=get_remote_address,
                   default_limits=["1 per minute", "1 per second"])
-herder.init()
 
 
 @app.route("/ping", methods=['GET'])
