@@ -8,4 +8,4 @@ COPY ./app/ ./
 COPY ./Pipfile* ./
 
 RUN pip install pipenv && \
-    pipenv sync
+    pipenv install --system
