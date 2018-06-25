@@ -1,11 +1,13 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
+FROM python:3-alpine
 
 LABEL maintainer="etienne@tomochain.com"
 
 WORKDIR /app
 
-COPY ./app/ ./
+COPY ./whaleherder/ ./
 COPY ./Pipfile* ./
 
 RUN pip install pipenv && \
     pipenv install --system
+
+ENTRYPOINT ["gunicorn", "app:app", "-b", "0.0.0.0"]

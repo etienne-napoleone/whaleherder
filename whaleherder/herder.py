@@ -8,7 +8,7 @@ _docker = docker.from_env()
 def ping() -> bool:
     try:
         return _docker.ping()
-    except docker.errors.APIError as e:
+    except Exception as e:
         _log.error('Could not communicate with Docker')
         _log.debug(e)
         return False
@@ -20,7 +20,7 @@ def get_services() -> dict:
         for service in _docker.services.list():
             services[service.name] = service.id
         return services
-    except docker.errors.APIError as e:
+    except Exception as e:
         _log.error('Could not communicate with Docker')
         _log.debug(e)
         return False
@@ -31,7 +31,7 @@ def _get_service(name):
     if name in services.keys():
         try:
             return _docker.services.get(services[name])
-        except docker.errors.APIError as e:
+        except Exception as e:
             _log.error('Could not communicate with Docker')
             _log.debug(e)
             return False
@@ -47,7 +47,7 @@ def reload(name) -> bool:
     try:
         service.update()
         return True
-    except docker.errors.APIError as e:
+    except Exception as e:
         _log.error('Could not communicate with Docker')
         _log.debug(e)
         return False

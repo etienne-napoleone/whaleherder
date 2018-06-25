@@ -11,6 +11,7 @@ docker = "*"
 flask = "*"
 pyyaml = "*"
 flask-limiter = "*"
+gunicorn = "*"
 
 
 [dev-packages]
