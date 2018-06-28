@@ -12,10 +12,10 @@ install:
 
 jobs:
   include:
+    - stage: Lint
+      script: flake8
     - stage: Tests
       script:
         - coverage run --source whaleherder -m pytest
         - coverage report
         - codecov
-    - stage: Lint
-      script: flake8
