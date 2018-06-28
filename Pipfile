@@ -16,6 +16,8 @@ gunicorn = "*"
 
 [dev-packages]
 
+"flake8" = "*"
+codecov = "*"
 
 
 [requires]

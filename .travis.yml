@@ -1,0 +1,14 @@
+language: python
+python: "3.6"
+
+before_install:
+  - pip install pipenv
+install:
+  - pipenv sync --dev
+
+jobs:
+  include:
+    - stage: Lint
+      script: flake8
+    - stage: Coverage
+      script: codecov
