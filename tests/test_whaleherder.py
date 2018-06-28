@@ -16,6 +16,7 @@ def app():
     main.app.testing = True
     return main.app.test_client()
 
+
 def test_ping(app):
     rv = app.get('/ping')
     assert b'Connected to Docker' in rv.data
