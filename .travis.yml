@@ -8,6 +8,7 @@ install:
 
 jobs:
   include:
+    - stage: Test
     - stage: Lint
       script: flake8
     - stage: Coverage

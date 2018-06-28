@@ -18,6 +18,7 @@ gunicorn = "*"
 
 "flake8" = "*"
 codecov = "*"
+pytest = "*"
 
 
 [requires]

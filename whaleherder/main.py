@@ -2,7 +2,7 @@ from flask import Flask
 from flask import abort
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-import herder
+from whaleherder import herder
 
 app = Flask('whaleherder')
 limiter = Limiter(app,
