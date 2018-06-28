@@ -1,5 +1,9 @@
 language: python
 python: "3.6"
+sudo: required
+
+services:
+  - docker
 
 before_install:
   - pip install pipenv
