@@ -13,6 +13,7 @@ install:
 jobs:
   include:
     - stage: Test
+      script: python -m pytest
     - stage: Lint
       script: flake8
     - stage: Coverage
