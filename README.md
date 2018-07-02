@@ -4,7 +4,7 @@
 
 🏗 Work in progress 🚧
 
-Whaleherder is a swarm service watching for docker hub webhooks. Once the tag of the managed images get updated, it will update your service accordingly.
+Whaleherder is a flask app listening for docker hub webhooks. Once a new image get pushed to the managed tag of the managed tags, it will trigger a docker service update accordingly.
 
 ## Installation
 
