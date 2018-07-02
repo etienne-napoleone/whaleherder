@@ -1,8 +1,8 @@
 import logging
-import docker
+import docker as pydocker
 
 _log = logging.getLogger('whaleherder')
-_docker = docker.from_env()
+_docker = pydocker.from_env()
 
 
 def ping() -> bool:
