@@ -2,13 +2,12 @@
 name = "whaleherder"
 version = "0.0.1"
 description = "Swarm services update from webhooks"
-authors = ["etienne-napoleone <etienne@tomochain.com>"]
+authors = ["Etienne Napoleone <etienne@tomochain.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.5"
 flask = "^1.0"
-codecov = "^2.0"
 
 [tool.poetry.dev-dependencies]
 coverage = "^4.5"
