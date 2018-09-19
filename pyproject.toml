@@ -7,6 +7,8 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.5"
+flask = "^1.0"
+codecov = "^2.0"
 
 [tool.poetry.dev-dependencies]
 coverage = "^4.5"
