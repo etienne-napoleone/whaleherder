@@ -12,6 +12,7 @@ Whaleherder is a flask app updating swarm services via webhook.
 **v0.1.0**
 
  - [ ] Webhooks endpoints for services and images
+ - [ ] Secret key(s) and rate limitation
  - [ ] Notifications via slack
  - [ ] Configurable via a single toml file
 
@@ -21,6 +22,7 @@ Whaleherder is a flask app updating swarm services via webhook.
  
 **v0.3.0 ?**
 
+ - [ ] Finer access control ?
  - [ ] Auth ?
  - [ ] Redeploy from status page ?
 
